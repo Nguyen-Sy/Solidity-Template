@@ -18,8 +18,8 @@ class Web3Utils {
         return new Promise((resolve) => setTimeout(resolve, millisecond));
     };
 
-    getContract = async (smc) => {
-        let address = db.read(network.name, smc);
+    getContract = async (smc, nw = network.name) => {
+        let address = db.read(nw, smc);
         return await hre.ethers.getContractAt(smc, address);
     };
 
